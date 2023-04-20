@@ -9,8 +9,33 @@ class CategoryController extends Controller
 {
     public function index(){
 
+        //veritabanından veriyi çektik
         $categories = Category::all();
-        dd($categories);
-        return view("admin.category.index");
+
+        //viewe veriyi gönderdik
+        $title = "Category Sayfamıza Hoşgeldiniz!";
+
+        return view("admin.category.index",[
+            "categoryList" => $categories,
+            "myTitle" => $title
+        ]);
+    }
+
+    public function create(){
+        return view("admin.category.create");
+    }
+
+    public function store(Request $request){
+        $newCategory = new Category();
+        $newCategory->name = $request->name;
+        $newCategory->status = $request->status;
+        $newCategory->slug = $request->slug;
+        $newCategory->save();
+        return redirect()->route("admin.category.index");
+    }
+    public function destroy($categoryid){ // 3
+        $category = Category::find($categoryid); // kiralık prefabrik ev
+        $category->delete();
+        return redirect()->back();
     }
 }

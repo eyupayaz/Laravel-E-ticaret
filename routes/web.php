@@ -29,9 +29,13 @@ Route::middleware("auth")->group(function (){
 
     Route::prefix("/admin/category")
         ->controller(CategoryController::class)
-        ->name("category.")->group(function(){
+        ->name("admin.category.")->group(function(){
 
         Route::get("/","index")->name("index");
+        Route::get("/create","create")->name("create");
+        Route::post("/store","store")->name("store");
+        Route::get("/destroy/{categoryid}","destroy")->name("destroy");
+            //delet/3
     });
 });
 
