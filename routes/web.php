@@ -1,8 +1,11 @@
 <?php
 
-use App\Http\Controllers\HomeController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,56 +13,52 @@ use App\Http\Controllers\Admin\AdminController;
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
+| be assigned to the "web" middleware group. Make something great!*/
 
 Route::get("/",[HomeController::class,"index"])->name("home");
 Route::get("/iletisim",[HomeController::class,"contact"])->name("contact");
 Route::get("/aboutus", [HomeController::class, "aboutus"])->name("aboutus");
 
+//admin
+Route::middleware("auth")->group(function (){
+    Route::get('/admin',[AdminController::class,'index'])->name('adminhome');
 
-Route::get("/home",[AdminController::class,"home"]);
+    Route::get('/admin/login',[HomeController::class, 'login'])->name('admin_login');
+    Route::post('/admin/logincheck', [HomeController::class, 'logincheck'])->name('admin_logincheck');
+    Route::post('/admin/logout', [HomeController::class, 'logout'])->name('admin_logout');
+
+    Route::prefix("/admin/category")
+        ->controller(CategoryController::class)
+        ->name("category.")->group(function(){
+
+        Route::get("/","index")->name("index");
+    });
+});
+
+
+
 Route::get('/test/{id}',[AdminController::class,'test']) ->where('id', '[0-9]+');
 
 Route::redirect('/anasayfa', '/home');
 
-/*
-Route::prefix("/admin")
-    ->controller(AdminController::class)
-    ->name("admin.")
-    ->group(function(){
-    Route::get("/dashboard","dashboard")->name("dashboard"); // /admin/dashboard
-    Route::get("/product","product")->name("product"); // /admin/product
-    Route::get("/order","order")->name("order"); // /admin/order
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-*/
 
-
+require __DIR__.'/auth.php';
 /*
- * Kendi modeli var mı? ProductController, PageController, FaqController */
-
-/*
- * homepage
- * iletisim
- * urun-detay : ProductController
- * urunler
- * sepet
- * profile : UserController
- *  /profile-bilgileri /profile/bilgiler
- *  /sifre degistir /profile/sifre
- *  /siparislerim  /profile/siparislerim : OrderController
- *  /siparis-detay /profile/siparis-detay/1
- * kayitol
- * girisyap
- * */
-
-/*
- * */
-
-/*
- * 1-web.php içerisinde route tanımlanır
- * 2-controllera gönderilir ve controllerdan sayfaya gönderilir (Model - Controller)
- * 3-view altında sayfa oluşturur (View)
+ * user
+ * product
+ * category
+ * order
+ * cart_items
+ * cart
+ *
  * */

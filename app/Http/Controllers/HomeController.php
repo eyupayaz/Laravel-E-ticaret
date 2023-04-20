@@ -22,6 +22,29 @@ class HomeController extends Controller
         return view("home.about");
     }
 
+    public function  login()
+    {
+        return view('admin.login');
+    }
+
+    public function logincheck(Request $request)
+    {
+        $method = $request->method();
+
+        if($request->isMethod('post'))
+        {
+            $credentials = $request->only('username', 'password');
+            if(Auth::attempt($credentials)){
+                $request->session()->regenerate();
+
+                return redirect()->intended('admin');
+            }
+            return back()->withErrors([
+                'username' => 'The provided credentials do not match our records'
+            ]);
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      */

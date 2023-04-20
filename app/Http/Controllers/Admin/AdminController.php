@@ -7,12 +7,7 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function home(){
-        return view("admin.pages.home");
-    }
-
-    public function test($id)
-    {
-        echo "Id Number :", $id;
+    public function index(){
+        return view('admin.index');
     }
 }

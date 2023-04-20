@@ -20,10 +20,16 @@
                         </div>
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
+                    @auth
                     <div class="navbar-nav ml-auto py-0">
-                        <a href="" class="nav-item nav-link">Login</a>
-                        <a href="" class="nav-item nav-link">Register</a>
+                        <a href="/profile" class="nav-item nav-link">Profile</a>
                     </div>
+                    @else
+                        <div class="navbar-nav ml-auto py-0">
+                            <a href="/login" class="nav-item nav-link">Login</a>
+                            <a href="/register" class="nav-item nav-link">Register</a>
+                        </div>
+                    @endauth
                 </div>
             </nav>
 
