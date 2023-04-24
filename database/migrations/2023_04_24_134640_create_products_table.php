@@ -16,13 +16,12 @@ return new class extends Migration
             $table->string('name',100);
             $table->string('description')->nullable();
             $table->string('image',75)->nullable();
-            $table->integer('cotegory_id')->nullable();
-            $table->integer('user_id')->nullable();
+            $table->foreignId('category_id')->references("id")->on("categories")->cascadeOnDelete();
+            $table->foreignId('user_id')->nullable();
             $table->float('price')->nullable();
             $table->integer('quantity')->default(1);
-            $table->integer('minquantity')->default(5);
             $table->integer('tax')->default(18);
-            $table->text('detail')->nullable();
+            $table->longText('detail')->nullable();
             $table->string('slug',80)->nullable();
             $table->enum("status", ["ACTIVE","PASSIVE"]);
             $table->timestamps();

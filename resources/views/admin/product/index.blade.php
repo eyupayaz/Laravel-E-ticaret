@@ -7,7 +7,7 @@
             <div class="container-fluid dashboard-content ">
                 <div class="row">
                     <div class="col-12 py-5">
-                        <a class="btn btn-warning"  href="{{route("admin.product.add")}}">Create Product</a>
+                        <a class="btn btn-warning"  href="{{route("admin.product.create")}}">Create Product</a>
                     </div>
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
@@ -16,26 +16,37 @@
                                 <table class="table table-hover">
                                     <thead>
                                     <tr>
-                                        <th scope="col">id</th>
-                                        <th scope="col">name</th>
-                                        <th scope="col">status</th>
-                                        <th scope="col">slug</th>
-                                        <th scope="col">created at </th>
-                                        <th scope="col">updated at </th>
-                                        <th scope="col">actions</th>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+
+                                        <th scope="col">Image</th>
+                                        <th scope="col">Category</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Tax</th>
+                                        <th scope="col">Slug</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Created At</th>
+                                        <th scope="col">Updated At</th>
+                                        <th scope="col">Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($categoryList as $item)
+                                    @foreach($productList as $item)
                                         <tr>
                                             <th scope="row">{{$item->id}}</th>
                                             <td>{{$item->name}}</td>
-                                            <td>{{$item->status}}</td>
+                                            <td>{{$item->image}}</td>
+                                            <td>{{$item->category_id}}</td>
+                                            <td>{{$item->price}}</td>
+                                            <td>{{$item->quantity}}</td>
+                                            <td>{{$item->tax}}</td>
                                             <td>{{$item->slug}}</td>
+                                            <td>{{$item->status}}</td>
                                             <td>{{$item->created_at}}</td>
                                             <td>{{$item->updated_at}}</td>
                                             <td>
-                                                <a class="btn btn-danger" href="{{route("admin.category.edit", ['categoryid' => $item->id])}}"> Edit</a>
+                                                <a class="btn btn-danger" href="{{route("admin.category.edit", ['categoryid' => $item->id])}}">Edit</a>
                                                 <a class="btn btn-danger" href="{{route("admin.category.destroy", [ 'categoryid' => $item->id])}}">Delete</a>
                                             </td>
                                         </tr>

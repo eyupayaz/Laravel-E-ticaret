@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -43,17 +44,17 @@ Route::middleware("auth")->group(function (){
 
 
 #Product
-    Route::prefix('/admin/Product')
+    Route::prefix('/admin/product')
         ->controller(ProductController::class)
         ->name('admin.product.')->group(function (){
 
-            Route::get('/index')->name('index');
-            Route::get('/add')->name('add');
-            Route::post('/create')->name('create');
-            Route::get('/edit/{id}')->name('edit');
-            Route::post('/update/{id}')->name('update');
-            Route::get('/delete/{id}')->name('delete');
-            Route::get("/show")->name('show');
+            Route::get('/index',"index")->name('index');
+            Route::post('/store',"store")->name('store');
+            Route::get('/create',"create")->name('create');
+            Route::get('/edit/{id}',"edit")->name('edit');
+            Route::post('/update/{id}',"update")->name('update');
+            Route::get('/delete/{id}',"delete")->name('delete');
+            Route::get("/show","show")->name('show');
 
     });
 
