@@ -35,7 +35,9 @@ Route::middleware("auth")->group(function (){
         Route::get("/create","create")->name("create");
         Route::post("/store","store")->name("store");
         Route::get("/destroy/{categoryid}","destroy")->name("destroy");
-            //delet/3
+        Route::get("/edit/{categoryid}","edit")->name("edit");
+        Route::post("update/{categoryid}","update")->name("update");
+
     });
 });
 

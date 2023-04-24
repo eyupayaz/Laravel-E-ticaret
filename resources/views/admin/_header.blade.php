@@ -1,6 +1,6 @@
 <div class="dashboard-header">
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
-        <a class="navbar-brand" href="index.html">Concept</a>
+        <a class="navbar-brand" href="index.html">Admin control</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -99,7 +99,11 @@
                         </div>
                         <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
                         <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
-                        <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                        <form method="GET" action="http://127.0.0.1:8000/">
+                            <input type="hidden" name="_token" value="jc0RjZ7ZAEbQ1nWIIs9fz9XZVvjp1KI68RfEHBno">
+                            <a class="block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" href="http://127.0.0.1:8000/logout" onclick="event.preventDefault();
+                                                this.closest('form').submit();">Log Out</a>
+                        </form>
                     </div>
                 </li>
             </ul>
