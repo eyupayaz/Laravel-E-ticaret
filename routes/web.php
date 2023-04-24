@@ -26,6 +26,7 @@ Route::middleware("auth")->group(function (){
     Route::get('/admin/login',[HomeController::class, 'login'])->name('admin_login');
     Route::post('/admin/logincheck', [HomeController::class, 'logincheck'])->name('admin_logincheck');
     Route::post('/admin/logout', [HomeController::class, 'logout'])->name('admin_logout');
+#Category
 
     Route::prefix("/admin/category")
         ->controller(CategoryController::class)
@@ -39,9 +40,24 @@ Route::middleware("auth")->group(function (){
         Route::post("update/{categoryid}","update")->name("update");
 
     });
+
+
+#Product
+    Route::prefix('/admin/Product')
+        ->controller(ProductController::class)
+        ->name('admin.product.')->group(function (){
+
+            Route::get('/index')->name('index');
+            Route::get('/add')->name('add');
+            Route::post('/create')->name('create');
+            Route::get('/edit/{id}')->name('edit');
+            Route::post('/update/{id}')->name('update');
+            Route::get('/delete/{id}')->name('delete');
+            Route::get("/show")->name('show');
+
+    });
+
 });
-
-
 
 Route::get('/test/{id}',[AdminController::class,'test']) ->where('id', '[0-9]+');
 
