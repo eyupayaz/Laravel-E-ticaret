@@ -57,7 +57,7 @@
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-danger" href="{{ route('admin.image.delete', [ 'product_id'=>$data->id])}}">Delete</a>
+                                                    <a class="btn btn-danger" href="{{ route('admin.image.delete', [ 'product_id'=>$data->id,'image_id' => $item->id])}}">Delete</a>
                                                 </td>
                                             </tr>
                                         @endforeach

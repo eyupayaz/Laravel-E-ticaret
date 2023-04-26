@@ -71,9 +71,9 @@ class ImageController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($product_id)
+    public function destroy($product_id,$image_id)
     {
-        $data = Image::find($product_id);
+        $data = Image::find($image_id);
         $data->delete();
         return redirect()->route('admin.image.create', ['product_id'=>$product_id]);
     }

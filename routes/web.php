@@ -66,7 +66,7 @@ Route::middleware("auth")->group(function (){
             Route::get('/index',"index")->name('index');
             Route::post('/store/{product_id}',"store")->name('store');
             Route::get('/create/{product_id}',"create")->name('create');
-            Route::get('/delete/{product_id}',"destroy")->name('delete');
+            Route::get('/delete/{product_id}/image/{image_id}',"destroy")->name('delete');
             Route::get("/show","show")->name('show');
 
         });
