@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id()->autoIncrement();
             $table->string('name',100);
             $table->string('description')->nullable();
-            $table->string('image',75)->nullable();
+            $table->string('image', 75)->nullable();
             $table->foreignId('category_id')->references("id")->on("categories")->cascadeOnDelete();
             $table->foreignId('user_id')->nullable();
             $table->float('price')->nullable();

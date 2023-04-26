@@ -1,5 +1,5 @@
 @extends("layouts.admin")
-@section('title','Admin panel Edit page')
+@section('title','Admin panel Edit İmages')
 
 @section('content')@section('javascript')
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -12,10 +12,10 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="section-block" id="basicform">
-                            <h3 class="section-title">Product Edit</h3>
+                            <h3 class="section-title">İmages Edit</h3>
                         </div>
                         <div class="card">
-                            <h5 class="card-header">Edit Product</h5>
+                            <h5 class="card-header">Edit İmages</h5>
                             <div class="card-body">
                                 <form method="POST" action="{{ route("admin.product.update",['id'=>$data->id])}}" enctype="multipart/form-data">
                                     @csrf
@@ -63,10 +63,6 @@
                                         <input id="quantity" type="number" value="{{$data->quantity}}" class="form-control" name="quantity" value="1">
                                     </div>
                                     <div class="form-group">
-                                        <label for="tax" class="col-form-label">Tax:</label>
-                                        <input id="tax" type="number" class="form-control" name="tax" value="18"/>
-                                    </div>
-                                    <div class="form-group">
                                         <label for="detail" class="col-form-label">Detail:</label>
                                         <textarea id="summernote" value="{{$data->detail}}" name="detail"></textarea>
                                         <script>
@@ -86,7 +82,10 @@
                                             });
                                         </script>
                                     </div>
-
+                                    <div class="form-group">
+                                        <label for="detail" class="col-form-label">Detail:</label>
+                                        <input id="detail" type="text" value="{{$data->detail}}" class="form-control" name="detail"/>
+                                    </div>
                                     <div class="form-group">
                                         <label for="slug" class="col-form-label">Slug:</label>
                                         <input id="slug" type="text" value="{{$data->slug}}" class="form-control" name="slug"/>

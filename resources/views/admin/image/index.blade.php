@@ -16,17 +16,17 @@
                                 <table class="table table-hover">
                                     <thead>
                                     <tr>
-                                        <th scope="col">Id</th>
+                                        <th scope="col">#</th>
                                         <th scope="col">Name</th>
+                                        <th scope="col">Image</th>
                                         <th scope="col">Category</th>
                                         <th scope="col">Price</th>
                                         <th scope="col">Quantity</th>
                                         <th scope="col">Tax</th>
-                                        <th scope="col">Image</th>
-                                        <th scope="col">Image Gallery</th>
+                                        <th scope="col">Slug</th>
                                         <th scope="col">Status</th>
-                                        <th scope=colspan="2">Actions</th>
--
+                                        <th scope="col">Created At</th>
+
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -34,16 +34,16 @@
                                         <tr>
                                             <th scope="row">{{$item->id}}</th>
                                             <td>{{$item->name}}</td>
+                                            <td>
+                                                @if($item->image)
+                                                    <img src="{{ Storage::url($item->image)}}" height="90" alt="">
+                                                @endif
+                                            </td>
                                             <td>{{$item->category_id}}</td>
                                             <td>{{$item->price}}</td>
                                             <td>{{$item->quantity}}</td>
                                             <td>{{$item->tax}}</td>
-                                            <td>
-                                                @if($item->image)
-                                                    <img src="{{ Storage::url($item->image)}}" height="60" alt="">
-                                                @endif
-                                            </td>
-                                            <td><a href="{{route('admin.image.create',['product_id' => $item->id])}}"><img src="{{asset('assets/admin/images')}}/gallery.png" height="40"></a> </td>
+                                            <td>{{$item->slug}}</td>
                                             <td>{{$item->status}}</td>
                                             <td>
                                                 <a class="btn btn-danger" href="{{route("admin.product.edit", ['id' => $item->id])}}">Edit</a>
@@ -53,7 +53,6 @@
                                     @endforeach
                                     </tbody>
                                 </table>
-
                             </div>
                         </div>
                     </div>
