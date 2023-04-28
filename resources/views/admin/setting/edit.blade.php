@@ -20,15 +20,12 @@
                                 <form method="POST" action="{{ route("admin.setting.update")}}" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
-                                        <input id="name" type="text" value="{{$data->id}}" class="form-control" name="name">
-                                    </div>
-                                    <div class="form-group">
                                         <label for="name" class="col-form-label">Name:</label>
                                         <input id="name" type="text" value="{{$data->name}}" class="form-control" name="name">
                                     </div>
                                     <div class="form-group">
                                         <label for="description" class="col-form-label">Description:</label>
-                                        <textarea id="description" value="{{$data->description}}" class="form-control" name="description"></textarea>
+                                        <textarea id="description" class="form-control" name="description">{{$data->description}}</textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="company" class="col-form-label">Company:</label>

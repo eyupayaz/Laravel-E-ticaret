@@ -19,48 +19,16 @@ class SettingController extends Controller
             $data = new Setting();
             $data->name = 'project name';
             $data->save();
-            $data = Setting::first();
+
         }
+        $data = Setting::first();
         return view('admin.setting.edit',[
             'data' => $data]);
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(setting $setting)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(setting $setting)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, setting $setting)
     {
         $id=$request->input('id');

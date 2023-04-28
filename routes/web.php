@@ -80,7 +80,7 @@ Route::middleware("auth")->group(function (){
 
             Route::get("/","index")->name("index");
             Route::get("/update","update")->name("update");
-            Route::post('/update',"update")->name('update');
+            Route::post('/update',"update");
         });
 
 });
