@@ -79,7 +79,6 @@ Route::middleware("auth")->group(function (){
         ->name("admin.setting.")->group(function(){
 
             Route::get("/","index")->name("index");
-            Route::get("/update","update")->name("update");
             Route::post('/update',"update");
         });
 
