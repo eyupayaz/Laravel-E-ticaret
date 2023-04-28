@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->string('name',100);
-            $table->foreignId('product_id')->references("id")->on("product")->cascadeOnDelete();
+            $table->foreignId('product_id');
             $table->string('image', 75)->nullable();
             $table->timestamps();
         });

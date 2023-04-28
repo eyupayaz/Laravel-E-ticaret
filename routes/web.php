@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -70,6 +71,18 @@ Route::middleware("auth")->group(function (){
             Route::get("/show","show")->name('show');
 
         });
+
+#Setting
+
+    Route::prefix("/admin/setting")
+        ->controller(SettingController::class)
+        ->name("admin.setting.")->group(function(){
+
+            Route::get("/","index")->name("index");
+            Route::get("/update","update")->name("update");
+            Route::post('/update',"update")->name('update');
+        });
+
 });
 
 Route::get('/test/{id}',[AdminController::class,'test']) ->where('id', '[0-9]+');

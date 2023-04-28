@@ -46,7 +46,11 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="pages/data-tables.html">Kargo ve Teslimat</a>
                                 </li>
+
                             </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('admin.setting.index')}}"  aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-user-circle"></i>Ayarlar</a>
+                    </li>
                         </div>
                     </li>
                     </li>
