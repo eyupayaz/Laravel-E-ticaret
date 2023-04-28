@@ -24,6 +24,10 @@
                                         <input id="name" type="text" value="{{$data->name}}" class="form-control" name="name">
                                     </div>
                                     <div class="form-group">
+                                        <label for="name" class="col-form-label">Name:</label>
+                                        <input id="name" type="hidden" value="{{$data->id}}" class="form-control" name="id">
+                                    </div>
+                                    <div class="form-group">
                                         <label for="description" class="col-form-label">Description:</label>
                                         <textarea id="description" class="form-control" name="description">{{$data->description}}</textarea>
                                     </div>
