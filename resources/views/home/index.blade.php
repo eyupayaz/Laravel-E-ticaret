@@ -1,9 +1,7 @@
 @extends("layouts.home")
-@section('title','Laravel E-Ticaret Sitesi Github')
-@section('description')
-    Türkiyenin en güvenilir ve en çok ürün bulunduran mağazası...
-@endsection
-@section('keywords','bilgisayar','Tablet','Telefon')
+@section('title', 'AYZ PREFABRİK')
+@section('description'){{$setting->description }}@endsection
+@section('keywords','prefabrik ev','hangar','2 katlı prefabrik ev')
 
 @section('content')
 

@@ -25,7 +25,7 @@
                         <div id="submenu-4" class="collapse submenu" style="">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/form-elements.html">Müşteri Bilgileri</a>
+                                    <a class="nav-link" href="{{route('admin.messages.index')}}">Mesajlar</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="pages/datepicker.html">Aktif Müşteriler</a>

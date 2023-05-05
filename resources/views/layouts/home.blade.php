@@ -40,11 +40,12 @@
 @include('home._category')
 @include('home._menu')
 @section('content')
-    </div>
+        @show    </div>
 </div>
 </div>
-    içerik alanı
-@show
+
+
+
 @include('home._footer')
 @yield('footerjs')
 </body>

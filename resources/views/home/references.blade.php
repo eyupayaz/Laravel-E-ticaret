@@ -1,11 +1,11 @@
 @extends("layouts.home")
-@section('title','About Us')
+@section('title','References')
 @section('keywords','prefabrik ev','hangar','2 katlı prefabrik ev')
 
 @section('content')
 
     <div class = "row-cols-md-6">
-        {{$setting->aboutus}}
+        {!! $setting->references !!}
     </div>
 @endsection
 

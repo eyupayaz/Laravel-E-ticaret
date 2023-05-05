@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
@@ -18,8 +19,13 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!*/
 
 Route::get("/",[HomeController::class,"index"])->name("home");
-Route::get("/iletisim",[HomeController::class,"contact"])->name("contact");
 Route::get("/aboutus", [HomeController::class, "aboutus"])->name("aboutus");
+Route::get("/references",[HomeController::class, "references"])->name("references");
+Route::get("/faq",[HomeController::class,"faq"])->name("faq");
+Route::get("/contact",[HomeController::class,"contact"])->name("contact");
+Route::post("/sendmessage",[HomeController::class,"sendmessage"])->name("sendmessage");
+Route::get("/categoryproducts/{id}/{slug}",[HomeController::class,"categoryproducts"])->name("categoryproducts");
+
 
 //admin
 Route::middleware("auth")->group(function (){
@@ -59,6 +65,20 @@ Route::middleware("auth")->group(function (){
 
     });
 
+#Message
+    Route::prefix('/admin/messages')
+        ->controller(MessageController::class)
+        ->name('admin.messages.')->group(function (){
+
+            Route::get('/index','index')->name('index');
+            Route::get('/edit/{id}',"edit")->name('edit');
+            Route::post('/update/{id}',"update")->name('update');
+            Route::get('/delete/{id}',"delete")->name('delete');
+            Route::get("/show","show")->name('show');
+
+        });
+
+
 #image
     Route::prefix('/admin/image')
         ->controller(\App\Http\Controllers\ImageController::class)
@@ -79,7 +99,8 @@ Route::middleware("auth")->group(function (){
         ->name("admin.setting.")->group(function(){
 
             Route::get("/","index")->name("index");
-            Route::post('/update',"update");
+            Route::get("/update","update")->name("update");
+            Route::post('/update',"update")->name("update");
         });
 
 });
