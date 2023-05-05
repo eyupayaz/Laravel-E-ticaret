@@ -24,8 +24,8 @@ Route::get("/references",[HomeController::class, "references"])->name("reference
 Route::get("/faq",[HomeController::class,"faq"])->name("faq");
 Route::get("/contact",[HomeController::class,"contact"])->name("contact");
 Route::post("/sendmessage",[HomeController::class,"sendmessage"])->name("sendmessage");
-Route::get("/categoryproducts/{id}/{slug}",[HomeController::class,"categoryproducts"])->name("categoryproducts");
-
+Route::get("/category/{id}/{slug}",[HomeController::class,"productListByCategory"])->name("category-product-list");
+Route::get("/p/{id}/{slug}",[HomeController::class,"product_detail"])->name("product_detail");
 
 //admin
 Route::middleware("auth")->group(function (){

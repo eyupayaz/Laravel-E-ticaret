@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Message;
+use App\Models\Product;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,13 +12,17 @@ use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public $categories;
+    public function __construct() {
+        $this->categories = Category::all();
+    }
+
     public function index()
     {
-        $setting = Setting::first();
-      return view("home.index",['setting'=>$setting]);
+      $setting = Setting::first();
+      $products = Product::latest()->limit(6)->get();
+
+      return view("home.index",['setting'=>$setting, 'categories' => $this->categories, 'products' => $products]);
     }
     public static function getsetting()
     {
@@ -26,17 +31,17 @@ class HomeController extends Controller
     public function contact()
     {
         $setting = Setting::first();
-        return view("home.contact",['setting'=>$setting]);
+        return view("home.contact",['setting'=>$setting,  'categories' => $this->categories]);
     }
     public function aboutus()
     {
         $setting = Setting::first();
-        return view("home.about",['setting'=>$setting]);
+        return view("home.about",['setting'=>$setting, 'categories' => $this->categories]);
     }
     public function references()
     {
         $setting = Setting::first();
-        return view("home.references",['setting'=>$setting]);
+        return view("home.references",['setting'=>$setting,  'categories' => $this->categories]);
     }
     public function sendmessage(Request $request)
     {
@@ -73,51 +78,20 @@ class HomeController extends Controller
         }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+    // products by category
+    public function productListByCategory($id, $slug){
+        $category = Category::with("products")->find($id);
+        $setting = Setting::first();
+        return view("home.category_product_list",[
+            'setting'=>$setting,
+            'categories' => $this->categories,
+            'categoryProducts' => $category
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+    public function product_detail($id){
+        $product = Product::find($id);
+        $setting = Setting::first();
+        return view("home.product_detail",['product' => $product,'setting' => $setting, 'categories' => $this->categories]);
     }
 }

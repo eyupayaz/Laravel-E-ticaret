@@ -9,13 +9,9 @@
                 <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
                     <div class="nav-item dropdown">
                     </div>
-                    <a href="" class="nav-item nav-link">Çelik Evler</a>
-                    <a href="" class="nav-item nav-link">Prefabrik Evler</a>
-                    <a href="" class="nav-item nav-link">Prefabrik Yapılar</a>
-                    <a href="" class="nav-item nav-link">Konteyner</a>
-                    <a href="" class="nav-item nav-link">Kabin</a>
-                    <a href="" class="nav-item nav-link">Çelik Hangar-Depo</a>
-
+                    @foreach($categories as $item)
+                    <a href="{{route('category-product-list',['id' => $item->id, 'slug' => $item->slug])}}" class="nav-item nav-link">{{$item->name}}</a>
+                    @endforeach
                 </div>
             </nav>
         </div>
