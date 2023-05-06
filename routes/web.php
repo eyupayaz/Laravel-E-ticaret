@@ -3,10 +3,12 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\ShopcartController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -81,7 +83,7 @@ Route::middleware("auth")->group(function (){
 
 #image
     Route::prefix('/admin/image')
-        ->controller(\App\Http\Controllers\ImageController::class)
+        ->controller(ImageController::class)
         ->name('admin.image.')->group(function (){
 
             Route::get('/index',"index")->name('index');
@@ -89,6 +91,18 @@ Route::middleware("auth")->group(function (){
             Route::get('/create/{product_id}',"create")->name('create');
             Route::get('/delete/{product_id}/image/{image_id}',"destroy")->name('delete');
             Route::get("/show","show")->name('show');
+
+        });
+
+#ShopCart
+    Route::prefix('/home/shopcart')
+        ->controller(ShopcartController::class)
+        ->name('home.shopcart.')->group(function (){
+
+            Route::get('/index',"index")->name('index');
+            Route::post('/store/{id}',"store")->name('store');
+            Route::post('/update/{id}',"update")->name('update');
+            Route::get('/delete/{id}',"delete")->name('delete');
 
         });
 
