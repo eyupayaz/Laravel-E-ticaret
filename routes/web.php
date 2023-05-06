@@ -101,9 +101,11 @@ Route::middleware("auth")->group(function (){
 
             Route::get('/index',"index")->name('index');
             Route::post('/store/{id}',"store")->name('store');
-            Route::post('/update/{id}',"update")->name('update');
-            Route::get('/delete/{id}',"delete")->name('delete');
-
+            Route::get('/delete/{id}',"destroy")->name('destroy');
+            Route::get("/address","address")->name("address");
+            Route::post("/address","address_store")->name("address");
+            Route::get("/checkout","checkout")->name("checkout");
+            Route::post("/checkout_payment","checkout_payment")->name("checkout.payment");
         });
 
 #Setting

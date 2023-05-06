@@ -48,5 +48,7 @@
 
 @include('home._footer')
 @yield('footerjs')
+@section('bottom-js')
+@show
 </body>
 </html>
