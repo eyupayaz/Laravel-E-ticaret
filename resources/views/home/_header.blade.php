@@ -9,7 +9,7 @@ $setting= \App\Http\Controllers\HomeController::getsetting()
                 <span class="text-muted px-2">|</span>
                 <a class="text-dark" href="">Yardım</a>
                 <span class="text-muted px-2">|</span>
-                <a class="text-dark" href="">Destek</a>
+                <a class="text-dark" href="{{route('adminhome')}}">Admin</a>
             </div>
         </div>
         <div class="col-lg-6 text-center text-lg-right">

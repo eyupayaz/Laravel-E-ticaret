@@ -21,17 +21,14 @@
 
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fab fa-fw fa-wpforms"></i>Müşteriler</a>
+                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fab fa-fw fa-wpforms"></i>Müşteri Ve Mesajlar</a>
                         <div id="submenu-4" class="collapse submenu" style="">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{route('admin.messages.index')}}">Mesajlar</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/datepicker.html">Aktif Müşteriler</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="pages/bootstrap-select.html">Pasif Müsteriler</a>
+                                    <a class="nav-link" href="pages/datepicker.html">Müşteriler</a>
                                 </li>
                             </ul>
                         </div>
@@ -48,9 +45,6 @@
                                 </li>
 
                             </ul>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('admin.setting.index')}}"  aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-user-circle"></i>Ayarlar</a>
-                    </li>
                         </div>
                     </li>
                     </li>

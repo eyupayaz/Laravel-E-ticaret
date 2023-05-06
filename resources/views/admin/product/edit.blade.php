@@ -45,16 +45,6 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="user_id" class="col-form-label">User:</label>
-                                        <select id="user_id" class="form-control" name="user_id">
-                                            <option selected = "selected">{{$data->user_id}}</option>
-                                            <option value="">Select a user</option>
-                                            <option value="1">User 1</option>
-                                            <option value="2">User 2</option>
-                                            <option value="3">User 3</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
                                         <label for="price" class="col-form-label">Price:</label>
                                         <input id="price" type="number" value="{{$data->price}}"  class="form-control" name="price">
                                     </div>

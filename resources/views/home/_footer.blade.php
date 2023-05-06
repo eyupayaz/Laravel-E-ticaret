@@ -20,21 +20,17 @@
                     <h5 class="font-weight-bold text-dark mb-4">Sayfalar</h5>
                     <div class="d-flex flex-column justify-content-start">
                         <a class="text-dark mb-2" href="{{route('home')}}"><i class="fa fa-angle-right mr-2">Anasayfa</i></a>
-                        <a class="text-dark mb-2" href="{{route('aboutus')}}"><i class="fa fa-angle-right mr-2"></i>Hakkımızda</a>
+                        <a class="text-dark mb-2" href="{{route('aboutus')}}"><i class="fa fa-angle-right mr-2">Hakkımızda</i></a>
                         <a class="text-dark mb-2" href="{{route('references')}}"><i class="fa fa-angle-right mr-2">Referanslar</i></a>
-                        <a class="text-dark mb-2" href="cart.html"><i class="fa fa-angle-right mr-2"></i>Ürünler</a>
-                        <a class="text-dark mb-2" href="{{route('contact')}}"><i class="fa fa-angle-right mr-2"></i>İletişim</a>
+                        <a class="text-dark mb-2" href="{{route('contact')}}"><i class="fa fa-angle-right mr-2">İletişim</i></a>
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">
                     <h5 class="font-weight-bold text-dark mb-4">Kategoriler</h5>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-dark mb-2" href="index.html"><i class="fa fa-angle-right mr-2"></i>Çelik Evler</a>
-                        <a class="text-dark mb-2" href="shop.html"><i class="fa fa-angle-right mr-2"></i>Prefabrik Evler</a>
-                        <a class="text-dark mb-2" href="detail.html"><i class="fa fa-angle-right mr-2"></i>Prefabrik Yapılar</a>
-                        <a class="text-dark mb-2" href="cart.html"><i class="fa fa-angle-right mr-2"></i>Konteyner</a>
-                        <a class="text-dark mb-2" href="checkout.html"><i class="fa fa-angle-right mr-2"></i>Kabin</a>
-                        <a class="text-dark" href="contact.html"><i class="fa fa-angle-right mr-2"></i>Çelik Hangar-Depo</a>
+                        @foreach($categories as $item)
+                            <a style="color: #0f0f0f" href="{{route('category-product-list',['id' => $item->id, 'slug' => $item->slug])}}" class="nav-item footer-link">{{$item->name}}</a>
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">

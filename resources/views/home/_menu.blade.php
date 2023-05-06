@@ -16,9 +16,10 @@
                         <a href="{{route('references')}}" class="nav-item nav-link">Referanslar</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Ürünler</a>
-                            <div class="dropdown-menu rounded-0 m-0">
-                                <a href="cart.html" class="dropdown-item">Prefabrik Yapılar</a>
-                                <a href="checkout.html" class="dropdown-item">Çelik Yapılar</a>
+                            <div class="dropdown-menu rounded-0 m-1">
+                                @foreach($categories as $item)
+                                    <a href="{{route('category-product-list',['id' => $item->id, 'slug' => $item->slug])}}" class="nav-item nav-link">{{$item->name}}</a>
+                                @endforeach
                             </div>
                         </div>
                         <a href="{{route('contact')}}" class="nav-item nav-link">İletişim</a>
