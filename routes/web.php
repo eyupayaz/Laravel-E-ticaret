@@ -33,7 +33,7 @@ Route::get("/yardım", [HomeController::class, "yardım"])->name("yardım");
 
 
 //admin
-Route::middleware("auth")->group(function (){
+Route::middleware(["admin","auth"])->group(function (){
     Route::get('/admin',[AdminController::class,'index'])->name('adminhome');
 
     Route::get('/admin/login',[HomeController::class, 'login'])->name('admin_login');
