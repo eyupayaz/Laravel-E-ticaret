@@ -7,13 +7,13 @@
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="page-header">
-                        <h2 class="pageheader-title">E-commerce Dashboard Template </h2>
-                        <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
+                        <h2 class="pageheader-title">E-Ticaret Takip Sistemi</h2>
+                        <p class="pageheader-text"></p>
                         <div class="page-breadcrumb">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">E-Commerce Dashboard Template</li>
+                                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">E-Ticaret Takip Sistemi</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Anasayfa</li>
                                 </ol>
                             </nav>
                         </div>
@@ -29,9 +29,9 @@
                     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="text-muted">Total Revenue</h5>
+                                <h5 class="text-muted">Toplam Satış </h5>
                                 <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">$12099</h1>
+                                    <h1 class="mb-1">$80000</h1>
                                 </div>
                                 <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span><i class="fa fa-fw fa-arrow-up"></i></span><span>5.86%</span>
@@ -43,9 +43,9 @@
                     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="text-muted">Affiliate Revenue</h5>
+                                <h5 class="text-muted">Ortaklık Geliri</h5>
                                 <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">$12099</h1>
+                                    <h1 class="mb-1">$120000</h1>
                                 </div>
                                 <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span><i class="fa fa-fw fa-arrow-up"></i></span><span>5.86%</span>
@@ -57,7 +57,7 @@
                     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="text-muted">Refunds</h5>
+                                <h5 class="text-muted">İadeler</h5>
                                 <div class="metric-value d-inline-block">
                                     <h1 class="mb-1">0.00</h1>
                                 </div>
@@ -71,9 +71,9 @@
                     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="text-muted">Avg. Revenue Per User</h5>
+                                <h5 class="text-muted">Ort. Kullanıcı Başına Gelir</h5>
                                 <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">$28000</h1>
+                                    <h1 class="mb-1">$13000</h1>
                                 </div>
                                 <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
                                     <span>-2.00%</span>

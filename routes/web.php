@@ -28,6 +28,9 @@ Route::get("/contact",[HomeController::class,"contact"])->name("contact");
 Route::post("/sendmessage",[HomeController::class,"sendmessage"])->name("sendmessage");
 Route::get("/category/{id}/{slug}",[HomeController::class,"productListByCategory"])->name("category-product-list");
 Route::get("/p/{id}/{slug}",[HomeController::class,"product_detail"])->name("product_detail");
+Route::get("/sss", [HomeController::class, "sss"])->name("sss");
+Route::get("/yardım", [HomeController::class, "yardım"])->name("yardım");
+
 
 //admin
 Route::middleware("auth")->group(function (){

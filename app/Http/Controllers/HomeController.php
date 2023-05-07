@@ -38,6 +38,16 @@ class HomeController extends Controller
         $setting = Setting::first();
         return view("home.about",['setting'=>$setting, 'categories' => $this->categories]);
     }
+    public function sss()
+    {
+        $setting = Setting::first();
+        return view("home.sss",['setting'=>$setting, 'categories' => $this->categories]);
+    }
+    public function yardım()
+    {
+        $setting = Setting::first();
+        return view("home.yardım",['setting'=>$setting, 'categories' => $this->categories]);
+    }
     public function references()
     {
         $setting = Setting::first();
